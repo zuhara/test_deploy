@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+  {% if added %}
+  <b> Added invoice  </b>
+  {% endif %}
+
+  <h1> Add new invoice </h1>
+  
+  <form action="/invoices" method='post'>
+    <input type="hidden"  name="cid" value="{{customer.id}}"/>
+    <label for="particulars"> Particulars </label>
+    <input type="text" id="particulars" name="particulars" />
+    <br/>
+    <label for="amount"> Amount </label>
+    <input type="text" id = "amount" name="amount" />
+    <input id = "createinvoice" type="submit" name="submit" value="add invoice"/>
+  </form>
+    
+  <h1> List of invoices {{customer.name}}</h1>
+  <p>
+    
+    <div id="invoices">
+      Loading....
+    </div>
+
+
+  </p>
+  <script type="text/javascript">
+    var cid = {{customer.id}};
+  </script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+  <h1> List of customers </h1>
+  <p>
+  <table>
+    <tr>
+      <th >Name</th> <th>Join data</th> <th>Address</th> <th>Email</th>
+    </tr>
+    {% for customer in customers %}
+    <tr>
+      <td><a href="/invoices?cid={{customer.id}}">{{customer.name}}<a></td> 
+      <td>{{customer.jdate}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.email}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </p>
+</body>
+{% endblock %}
